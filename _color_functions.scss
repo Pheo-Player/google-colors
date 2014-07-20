@@ -293,3 +293,8 @@
 	// all other cases use white text
 	@return $white;
 }
+
+$alphas: 0.87 0.54 0.26 0.12;
+@function textColorShade($color: #f00, $index: 1) {
+	@return change-color($color, $alpha: nth($alphas, $index));
+}

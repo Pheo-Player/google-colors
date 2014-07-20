@@ -1,105 +1,129 @@
-$main: getPrimary($hue, map-get($indices, 'primary'));
+// Background
+$primary: getPrimary($hue, map-get($indices, 'primary'));
 $dark: getPrimary($hue, map-get($indices, 'dark'));
 $light: getPrimary($hue, map-get($indices, 'light'));
+$accent: getAccent($accent-hue, map-get($accent-indices, 'primary'));
+$accent1: getAccent($accent-hue, map-get($accent-indices, 'fallback1'));
+$accent2: getAccent($accent-hue, map-get($accent-indices, 'fallback2'));
 
-$main-text: getText($hue, map-get($indices, 'primary'));
-$dark-text: getText($hue, map-get($indices, 'dark'));
-$light-text: getText($hue, map-get($indices, 'light'));
+// Text color values
+$primaryText: getText($hue, map-get($indices, 'primary'));
+$darkText: getText($hue, map-get($indices, 'dark'));
+$lightText: getText($hue, map-get($indices, 'light'));
+$accentText: getAccentText($accent-hue, map-get($accent-indices, 'primary'));
+$accent1Text: getAccentText($accent-hue, map-get($accent-indices, 'fallback1'));
+$accent2Text: getAccentText($accent-hue, map-get($accent-indices, 'fallback2'));
 
 @mixin colors-primary {
-	background-color: $main;
-	color: change-color($main-text, $alpha: 0.87);
+	background-color: $primary;
+	color: textColorShade($primaryText, 1);
 
 	.secondary {
-		color: change-color($main-text, $alpha: 0.54);
+		color: textColorShade($primaryText, 2);
 	}
 	.hint {
-		color: change-color($main-text, $alpha: 0.26);
+		color: textColorShade($primaryText, 3);
 	}
 	.divider {
-		color: change-color($main-text, $alpha: 0.12);
+		display: none;
+		color: textColorShade($primaryText, 4);
+	}
+
+	h1, h2, h3, h4, h5 {
+		color: $primaryText;
 	}
 }
-@mixin colors-primary-dark {
+@mixin colors-dark {
 	background-color: $dark;
-	color: change-color($dark-text, $alpha: 0.87);
+	color: textColorShade($darkText, 1);
 
 	.secondary {
-		color: change-color($dark-text, $alpha: 0.54);
+		color: textColorShade($darkText, 2);
 	}
 	.hint {
-		color: change-color($dark-text, $alpha: 0.26);
+		color: textColorShade($darkText, 3);
 	}
 	.divider {
-		color: change-color($dark-text, $alpha: 0.12);
+		color: textColorShade($darkText, 4);
+	}
+
+	h1, h2, h3, h4, h5 {
+		color: $darkText;
 	}
 }
-@mixin colors-primary-light {
+@mixin colors-light {
 	background-color: $light;
-	color: change-color($light-text, $alpha: 0.87);
+	color: textColorShade($lightText, 1);
 
 	.secondary {
-		color: change-color($light-text, $alpha: 0.54);
+		color: textColorShade($lightText, 2);
 	}
 	.hint {
-		color: change-color($light-text, $alpha: 0.26);
+		color: textColorShade($lightText, 3);
 	}
 	.divider {
-		color: change-color($light-text, $alpha: 0.12);
+		color: textColorShade($lightText, 4);
+	}
+
+	h1, h2, h3, h4, h5 {
+		color: $lightText;
 	}
 }
-
-$accent: getAccent($accent-hue, map-get($accent-indices, 'primary'));
-$accent-text: getAccentText($accent-hue, map-get($accent-indices, 'primary'));
 
 @mixin colors-accent {
 	background-color: $accent;
-	color: change-color($accent-text, $alpha: 0.87);
+	color: change-color($accentText, $alpha: 0.87);
+
+	h1, h2, h3, h4, h5 {
+		color: $accentText;
+	}
 
 	.secondary {
-		color: change-color($accent-text, $alpha: 0.54);
+		color: change-color($accentText, $alpha: 0.54);
 	}
 	.hint {
-		color: change-color($accent-text, $alpha: 0.26);
+		color: change-color($accentText, $alpha: 0.26);
 	}
 	.divider {
-		color: change-color($accent-text, $alpha: 0.12);
+		color: change-color($accentText, $alpha: 0.12);
 	}
 }
 
 // Accent fallbacks
-$accent1: getAccent($accent-hue, map-get($accent-indices, 'fallback1'));
-$accent1-text: getAccentText($accent-hue, map-get($accent-indices, 'fallback1'));
-
 @mixin colors-accent1 {
 	background-color: $accent1;
-	color: change-color($accent1-text, $alpha: 0.87);
+	color: change-color($accent1Text, $alpha: 0.87);
+
+	h1, h2, h3, h4, h5 {
+		color: $accent1Text;
+	}
 
 	.secondary {
-		color: change-color($accent1-text, $alpha: 0.54);
+		color: change-color($accent1Text, $alpha: 0.54);
 	}
 	.hint {
-		color: change-color($accent1-text, $alpha: 0.26);
+		color: change-color($accent1Text, $alpha: 0.26);
 	}
 	.divider {
-		color: change-color($accent1-text, $alpha: 0.12);
+		color: change-color($accent1Text, $alpha: 0.12);
 	}
 }
 
-$accent2: getAccent($accent-hue, map-get($accent-indices, 'fallback2'));
-$accent2-text: getAccentText($accent-hue, map-get($accent-indices, 'fallback2'));
-
 @mixin colors-accent2 {
 	background-color: $accent2;
-	color: change-color($accent2-text, $alpha: 0.87);
+	color: change-color($accent2Text, $alpha: 0.87);
+
+	h1, h2, h3, h4, h5 {
+		color: $accent2Text;
+	}
 
 	.secondary {
-		color: change-color($accent2-text, $alpha: 0.54);
+		color: change-color($accent2Text, $alpha: 0.54);
 	}
 	.hint {
-		color: change-color($accent2-text, $alpha: 0.26);
+		color: change-color($accent2Text, $alpha: 0.26);
 	}
 	.divider {
-		color: change-color($accent2-text, $alpha: 0.12);
+		color: change-color($accent2Text, $alpha: 0.12);
 	}
 }
