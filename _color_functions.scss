@@ -1,0 +1,227 @@
+@import "base_colors";
+
+// PRIMARY COLOR
+@function getPrimary($hue: 'indigo', $index: 500) {
+	@if $hue == 'red' {
+		@return map-get($red, $index);
+	}
+	@else if $hue == 'pink' {
+		@return map-get($pink, $index);
+	}
+	@else if $hue == 'purple' {
+		@return map-get($purple, $index);
+	}
+	@else if $hue == 'deep-purple' {
+		@return map-get($deep-purple, $index);
+	}
+	@else if $hue == 'indigo' {
+		@return map-get($indigo, $index);
+	}
+	@else if $hue == 'blue' {
+		@return map-get($blue, $index);
+	}
+	@else if $hue == 'light-blue' {
+		@return map-get($light-blue, $index);
+	}
+	@else if $hue == 'cyan' {
+		@return map-get($cyan, $index);
+	}
+	@else if $hue == 'teal' {
+		@return map-get($teal, $index);
+	}
+	@else if $hue == 'green' {
+		@return map-get($green, $index);
+	}
+	@else if $hue == 'light-green' {
+		@return map-get($light-green, $index);
+	}
+	@else if $hue == 'lime' {
+		@return map-get($lime, $index);
+	}
+	@else if $hue == 'yellow' {
+		@return map-get($yellow, $index);
+	}
+	@else if $hue == 'amber' {
+		@return map-get($amber, $index);
+	}
+	@else if $hue == 'orange' {
+		@return map-get($orange, $index);
+	}
+	@else if $hue == 'deep-orange' {
+		@return map-get($deep-orange, $index);
+	}
+	@else if $hue == 'brown' {
+		@return map-get($brown, $index);
+	}
+	@else if $hue == 'grey' {
+		@return map-get($grey, $index);
+	}
+	@else if $hue == 'blue-grey' {
+		@return map-get($blue-grey, $index);
+	}
+
+	@return #f00; // easily makes wrong settings visible
+}
+
+// ACCENT COLOR
+@function getAccent($hue: 'pink', $i: 400) {
+	$index: 'A#{$i}';
+
+	@if $hue == 'red' {
+		@return map-get($red, $index);
+	}
+	@else if $hue == 'pink' {
+		@return map-get($pink, $index);
+	}
+	@else if $hue == 'purple' {
+		@return map-get($purple, $index);
+	}
+	@else if $hue == 'deep-purple' {
+		@return map-get($deep-purple, $index);
+	}
+	@else if $hue == 'indigo' {
+		@return map-get($indigo, $index);
+	}
+	@else if $hue == 'blue' {
+		@return map-get($blue, $index);
+	}
+	@else if $hue == 'light-blue' {
+		@return map-get($light-blue, $index);
+	}
+	@else if $hue == 'cyan' {
+		@return map-get($cyan, $index);
+	}
+	@else if $hue == 'teal' {
+		@return map-get($teal, $index);
+	}
+	@else if $hue == 'green' {
+		@return map-get($green, $index);
+	}
+	@else if $hue == 'light-green' {
+		@return map-get($light-green, $index);
+	}
+	@else if $hue == 'lime' {
+		@return map-get($lime, $index);
+	}
+	@else if $hue == 'yellow' {
+		@return map-get($yellow, $index);
+	}
+	@else if $hue == 'amber' {
+		@return map-get($amber, $index);
+	}
+	@else if $hue == 'orange' {
+		@return map-get($orange, $index);
+	}
+	@else if $hue == 'deep-orange' {
+		@return map-get($deep-orange, $index);
+	}
+	@else if $hue == 'brown' {
+		@return map-get($brown, $index);
+	}
+	@else if $hue == 'grey' {
+		@return map-get($grey, $index);
+	}
+	@else if $hue == 'blue-grey' {
+		@return map-get($blue-grey, $index);
+	}
+
+	@return #f00; // easily makes wrong settings visible
+}
+
+// TEXT COLOR
+@function getText($hue: 'indigo', $index: 500) {
+	@if $hue == 'red' {
+		@if $index == 'A100' or $index < 500 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'pink' {
+		@if $index == 'A100' or $index < 500 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'purple' {
+		@if $index == 'A100' or $index < 300 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'deep-purple' {
+		@if $index == 'A100' or $index < 300 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'indigo' {
+		@if $index == 'A100' or $index < 300 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'blue' {
+		@if $index == 'A100' or $index < 500 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'light-blue' {
+		@if $index == 'A100' or $index == 'A200' or $index == 'A400' or $index < 500 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'cyan' {
+		@if $index == 'A100' or $index == 'A200' or $index == 'A400' or $index == 'A700' or $index < 500 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'teal' {
+		@if $index == 'A100' or $index == 'A200' or $index == 'A400' or $index == 'A700' or $index < 500 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'green' {
+		@if $index == 'A100' or $index == 'A200' or $index == 'A400' or $index == 'A700' or $index < 500 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'light-green' {
+		@if $index != 800 and $index != 900 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'lime' {
+		@if $index != 900 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'yellow' {
+		@return $black;
+	}
+	@else if $hue == 'amber' {
+		@return $black;
+	}
+	@else if $hue == 'orange' {
+		@if $index != 800 and $index != 900 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'deep-orange' {
+		@if $index == 'A100' or $index == 'A200' or $index < 500 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'brown' {
+		@if $index < 300 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'grey' {
+		@if $index < 600 or $index == '1000_W' {
+			@return $black;
+		}
+	}
+	@else if $hue == 'blue-grey' {
+		@if $index < 400 {
+			@return $black;
+		}
+	}
+	
+	// all other cases use white text
+	@return $white;
+}
