@@ -1,6 +1,6 @@
 $main: getPrimary($hue, map-get($indices, 'primary'));
-$dark: getPrimary(hue, map-get($indices, 'dark'));
-$light: getPrimary(hue, map-get($indices, 'light'));
+$dark: getPrimary($hue, map-get($indices, 'dark'));
+$light: getPrimary($hue, map-get($indices, 'light'));
 
 $main-text: getText($hue, map-get($indices, 'primary'));
 $dark-text: getText($hue, map-get($indices, 'dark'));
@@ -50,7 +50,7 @@ $light-text: getText($hue, map-get($indices, 'light'));
 }
 
 $accent: getAccent($accent-hue, map-get($accent-indices, 'primary'));
-$accent-text: getText($accent-hue, map-get($accent-indices, 'primary'));
+$accent-text: getAccentText($accent-hue, map-get($accent-indices, 'primary'));
 
 @mixin colors-accent {
 	background-color: $accent;
@@ -69,10 +69,10 @@ $accent-text: getText($accent-hue, map-get($accent-indices, 'primary'));
 
 // Accent fallbacks
 $accent1: getAccent($accent-hue, map-get($accent-indices, 'fallback1'));
-$accent1-text: getText($accent-hue, map-get($accent-indices, 'fallback1'));
+$accent1-text: getAccentText($accent-hue, map-get($accent-indices, 'fallback1'));
 
 @mixin colors-accent1 {
-	background-color: $accent;
+	background-color: $accent1;
 	color: change-color($accent1-text, $alpha: 0.87);
 
 	.secondary {
@@ -87,7 +87,7 @@ $accent1-text: getText($accent-hue, map-get($accent-indices, 'fallback1'));
 }
 
 $accent2: getAccent($accent-hue, map-get($accent-indices, 'fallback2'));
-$accent2-text: getText($accent-hue, map-get($accent-indices, 'fallback2'));
+$accent2-text: getAccentText($accent-hue, map-get($accent-indices, 'fallback2'));
 
 @mixin colors-accent2 {
 	background-color: $accent2;

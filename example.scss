@@ -1,0 +1,85 @@
+// First, define your color settings. The variable names are important!
+$hue: 'indigo';
+$indices: (
+	'primary': 500,
+	'dark': 700,
+	'light': 100
+);
+
+$accent-hue: 'pink';
+$accent-indices: (
+	'primary': 'A200',
+	'fallback1': 'A100',
+	'fallback2': 'A400'
+);
+
+// Then import the functions and mixins
+@import "color_functions";
+@import "color_mixins";
+
+// Then include the mixins
+body {
+	@include colors-primary-light;
+}
+header {
+	@include colors-primary;
+}
+footer {
+	@include colors-primary-dark;
+}
+.accent {
+	@include colors-accent;
+}
+.accent1 {
+	@include colors-accent1;
+}
+.accent2 {
+	@include colors-accent2;
+}
+
+// Irrelevant for colors, only to make this demo more appealing
+* { box-sizing: border-box; }
+body {
+	margin: 0; padding: 0;
+	height: 100%;
+
+	font-family: sans-serif;
+}
+
+header, footer {
+	padding: 20px;
+	width: 100%;
+
+	h1 {
+		margin: 0;
+	}
+}
+footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+#content {
+	padding: 20px;
+
+	button {
+		cursor: pointer;
+
+		&:focus, &:active {
+			outline: 0 none;
+		}
+
+		margin-left: 20px;
+
+		width: 64px;
+		height: 64px;
+
+		float: right;
+
+		border-radius: 50%;
+		border: 0px none;
+
+		font-size: 48px;
+	}
+}

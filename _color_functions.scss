@@ -64,9 +64,7 @@
 }
 
 // ACCENT COLOR
-@function getAccent($hue: 'pink', $i: 400) {
-	$index: 'A#{$i}';
-
+@function getAccent($hue: 'pink', $index: 'A200') {
 	@if $hue == 'red' {
 		@return map-get($red, $index);
 	}
@@ -128,55 +126,125 @@
 	@return #f00; // easily makes wrong settings visible
 }
 
-// TEXT COLOR
-@function getText($hue: 'indigo', $index: 500) {
+@function getAccentText($hue: 'pink', $index: 'A200') {
 	@if $hue == 'red' {
-		@if $index == 'A100' or $index < 500 {
+		@if $index == 'A100' {
 			@return $black;
 		}
 	}
 	@else if $hue == 'pink' {
-		@if $index == 'A100' or $index < 500 {
+		@if $index == 'A100' {
 			@return $black;
 		}
 	}
 	@else if $hue == 'purple' {
-		@if $index == 'A100' or $index < 300 {
+		@if $index == 'A100' {
 			@return $black;
 		}
 	}
 	@else if $hue == 'deep-purple' {
-		@if $index == 'A100' or $index < 300 {
+		@if $index == 'A100' {
 			@return $black;
 		}
 	}
 	@else if $hue == 'indigo' {
-		@if $index == 'A100' or $index < 300 {
+		@if $index == 'A100' {
 			@return $black;
 		}
 	}
 	@else if $hue == 'blue' {
-		@if $index == 'A100' or $index < 500 {
+		@if $index == 'A100' {
 			@return $black;
 		}
 	}
 	@else if $hue == 'light-blue' {
-		@if $index == 'A100' or $index == 'A200' or $index == 'A400' or $index < 500 {
+		@if $index != 'A700' {
 			@return $black;
 		}
 	}
 	@else if $hue == 'cyan' {
-		@if $index == 'A100' or $index == 'A200' or $index == 'A400' or $index == 'A700' or $index < 500 {
+		@return $black;
+	}
+	@else if $hue == 'teal' {
+		@return $black;
+	}
+	@else if $hue == 'green' {
+		@return $black;
+	}
+	@else if $hue == 'light-green' {
+		@return $black;
+	}
+	@else if $hue == 'lime' {
+		@return $black;
+	}
+	@else if $hue == 'yellow' {
+		@return $black;
+	}
+	@else if $hue == 'amber' {
+		@return $black;
+	}
+	@else if $hue == 'orange' {
+		@return $black;
+	}
+	@else if $hue == 'deep-orange' {
+		@if $index == 'A100' or $index == 'A200' {
+			@return $black;
+		}
+	}
+	
+	// all other cases use white text
+	@return $white;
+}
+
+// TEXT COLOR
+@function getText($hue: 'indigo', $index: 500) {
+	@if $hue == 'red' {
+		@if $index < 500 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'pink' {
+		@if $index < 500 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'purple' {
+		@if $index < 300 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'deep-purple' {
+		@if $index < 300 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'indigo' {
+		@if $index < 300 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'blue' {
+		@if $index < 500 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'light-blue' {
+		@if $index < 500 {
+			@return $black;
+		}
+	}
+	@else if $hue == 'cyan' {
+		@if $index < 500 {
 			@return $black;
 		}
 	}
 	@else if $hue == 'teal' {
-		@if $index == 'A100' or $index == 'A200' or $index == 'A400' or $index == 'A700' or $index < 500 {
+		@if $index < 500 {
 			@return $black;
 		}
 	}
 	@else if $hue == 'green' {
-		@if $index == 'A100' or $index == 'A200' or $index == 'A400' or $index == 'A700' or $index < 500 {
+		@if $index < 500 {
 			@return $black;
 		}
 	}
@@ -202,7 +270,7 @@
 		}
 	}
 	@else if $hue == 'deep-orange' {
-		@if $index == 'A100' or $index == 'A200' or $index < 500 {
+		@if $index < 500 {
 			@return $black;
 		}
 	}
